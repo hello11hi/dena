@@ -573,19 +573,143 @@
       html { scroll-behavior: auto; }
     }
 
-    /* ============ استجابة الشاشات الصغيرة ============ */
-    @media (max-width: 991px) {
-      .hero { text-align: center; }
+    /* ============ حماية إضافية من أي Overflow أفقي (لا تؤثر على شكل الديسكتوب) ============ */
+    html { overflow-x: hidden; width: 100%; }
+    body { width: 100%; max-width: 100vw; }
+    img, svg { max-width: 100%; }
+
+    /* =====================================================
+       استجابة الشاشات الصغيرة (الهواتف والتابلت)
+       نطاق التغطية: من 992px نزولاً حتى 320px
+       ملاحظة: كل ما يلي مخصص فقط لعرض ≤ 992px
+       ولا يغيّر إطلاقاً تصميم نسخة الكمبيوتر (> 992px)
+       ===================================================== */
+
+    /* ---------- ≤ 992px: تفعيل تخطيط الهاتف/التابلت ---------- */
+    @media (max-width: 991.98px) {
+      .hero { text-align: center; padding-top: 126px; }
       .hero-desc, .hero-stats { margin-inline: auto; justify-content: center; }
-      .tooth-scene { margin-top: 50px; }
+      .tooth-scene { margin-top: 46px; }
       .mini-card.mc3 { display: none; }
+      .about-visual { min-height: 360px; }
+      .booking-side, .booking-side p { text-align: center; }
+      .booking-feature { text-align: right; }
     }
-    @media (max-width: 575px) {
-      .section-pad { padding-block: 70px; }
-      .mini-card { font-size: .78rem; padding: 8px 12px; }
-      .mini-card.mc1 { right: 0; }
-      .mini-card.mc2 { left: 0; }
+
+    /* ---------- ≤ 768px: هواتف كبيرة وتابلت صغير ---------- */
+    @media (max-width: 767.98px) {
+      .section-pad { padding-block: 64px; }
+      .navbar-brand { font-size: 1.08rem; }
+      .navbar-collapse { text-align: center; padding-top: 14px; }
+      .navbar-nav .nav-link { padding-block: 10px; font-size: 1.02rem; }
+      .navbar-nav .nav-link::after { display: none; }
+      .btn-nav-book { margin-top: 8px; display: inline-flex; }
+      .hero-stats { gap: 22px; justify-content: center; }
+      .hero-stat { min-width: 84px; }
+      .mini-card { font-size: .82rem; padding: 8px 13px; }
+      .float-icon { opacity: .55; }
+      .contact-card { padding: 30px 20px; }
+    }
+
+    /* ---------- ≤ 576px: الهواتف ---------- */
+    @media (max-width: 575.98px) {
+      .container { padding-inline: 18px; }
+
+      /* الواجهة الرئيسية: نستبدل 100vh بارتفاع طبيعي حسب المحتوى
+         لمنع القفزات والتداخل الناتجة عن تغيّر شريط عنوان المتصفح أثناء التمرير */
+      .hero { min-height: auto; padding-top: 116px; padding-bottom: 44px; }
+      .hero-badge { font-size: .8rem; padding: 6px 14px; text-align: center; line-height: 1.6; }
+      .hero h1 { font-size: clamp(1.7rem, 8vw, 2.15rem); margin-top: 16px; line-height: 1.4; }
+      .hero-tagline { font-size: 1.02rem; margin-top: 8px; }
+      .hero-desc { font-size: .95rem; margin-top: 10px; }
+      .btn-hero { padding: 11px 24px; font-size: .95rem; }
+      .hero-stats { gap: 16px; margin-top: 30px; }
+      .hero-stat { min-width: 0; }
+      .hero-stat .num { font-size: 1.5rem; }
+      .hero-stat .lbl { font-size: .76rem; }
+
+      .tooth-scene { width: 78%; margin-top: 34px; }
+      .mini-card { font-size: .72rem; padding: 7px 11px; gap: 6px; }
+      .mini-card.mc1 { top: 4%; right: 2%; }
+      .mini-card.mc2 { bottom: 6%; left: 2%; }
+
+      .section-pad { padding-block: 52px; }
+      .sec-title { font-size: clamp(1.4rem, 6.5vw, 1.9rem); margin-top: 12px; }
+      .sec-eyebrow { font-size: .84rem; padding: 5px 14px; }
+
+      .about-visual { min-height: 300px; }
+      .about-visual svg { width: 48%; }
+      .about-chip { padding: 11px 14px; font-size: .86rem; right: 14px; left: 14px; bottom: 14px; }
+
+      .exp-card { padding: 28px 18px; }
+      .exp-icon { width: 62px; height: 62px; font-size: 1.5rem; border-radius: 20px; }
+
+      .srv-card { padding: 24px 18px; }
+      .srv-icon { width: 52px; height: 52px; font-size: 1.2rem; margin-bottom: 14px; border-radius: 16px; }
+
+      .why-card { padding: 22px 18px; gap: 14px; }
+      .why-icon { width: 48px; height: 48px; font-size: 1.05rem; border-radius: 14px; }
+
+      .testi-card { padding: 26px 20px; }
+      .testi-card .quote-mark { font-size: 2.6rem; top: 10px; left: 16px; }
+
+      .booking-glass { padding: 20px; border-radius: 20px; }
+      .btn-submit-booking { padding: 13px 24px; font-size: 1rem; }
+      .period-label { padding: 11px 8px; font-size: .9rem; }
+
+      .contact-icon { width: 68px; height: 68px; font-size: 1.7rem; margin-bottom: 14px; border-radius: 22px; }
+
+      .footer-brand { font-size: 1.25rem; justify-content: center; text-align: center; }
+      footer { text-align: center; padding: 54px 0 22px; }
+      .footer-social { margin-top: 6px; }
+      .footer-links a { display: inline-block; margin-inline: 6px; }
+
+      #backToTop { width: 46px; height: 46px; bottom: 18px; left: 18px; font-size: 1rem; border-radius: 15px; }
       #mouseGlow { display: none; }
+    }
+
+    /* ---------- ≤ 480px ---------- */
+    @media (max-width: 480px) {
+      .hero-stats { flex-direction: column; align-items: center; gap: 14px; }
+      .tooth-scene { width: 72%; }
+      .mini-card.mc2 { display: none; }
+      .d-flex.gap-3.flex-wrap.mt-4 { flex-direction: column; align-items: stretch; }
+      .btn-hero { width: 100%; text-align: center; }
+    }
+
+    /* ---------- ≤ 430px ---------- */
+    @media (max-width: 430px) {
+      .hero h1 { font-size: clamp(1.55rem, 8.4vw, 1.9rem); }
+      .sec-title { font-size: clamp(1.3rem, 7vw, 1.7rem); }
+      .exp-icon, .contact-icon { width: 56px; height: 56px; }
+      .srv-icon { width: 46px; height: 46px; }
+      .footer-social a { width: 42px; height: 42px; font-size: 1.05rem; }
+    }
+
+    /* ---------- ≤ 414px / 390px ---------- */
+    @media (max-width: 414px) {
+      .container { padding-inline: 15px; }
+      .hero { padding-top: 110px; }
+      .hero-badge { font-size: .76rem; padding: 5px 12px; }
+      .booking-glass { padding: 16px; }
+      .navbar-brand { font-size: 1rem; }
+    }
+
+    /* ---------- ≤ 375px / 360px ---------- */
+    @media (max-width: 375px) {
+      .hero h1 { font-size: 1.5rem; }
+      .hero-desc { font-size: .9rem; }
+      .tooth-scene { width: 68%; }
+      .mini-card.mc1 { top: 2%; right: 0; }
+    }
+
+    /* ---------- ≤ 320px ---------- */
+    @media (max-width: 320px) {
+      .hero h1 { font-size: 1.35rem; }
+      .sec-title { font-size: 1.25rem; }
+      .btn-hero { padding: 10px 18px; font-size: .88rem; }
+      .exp-card, .srv-card, .why-card, .testi-card { padding: 18px 14px; }
+      .booking-glass { padding: 14px; }
     }
   </style>
 </head>
