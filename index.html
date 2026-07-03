@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <!-- ============ الترويسة وتحسين محركات البحث ============ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الدكتورة دينا أحمد | عيادة أسنان متخصصة — ابتسامتك تبدأ بالعناية الصحيحة</title>
+  <meta name="description" content="عيادة الدكتورة دينا أحمد لطب وتجميل الأسنان — تنظيف، تبييض، حشوات، علاج التسوس والحساسية، وفحوصات دورية بأحدث التقنيات وأعلى معايير التعقيم. احجز موعدك الآن.">
+  <meta name="keywords" content="طبيبة أسنان, تبييض الأسنان, تنظيف الأسنان, حشوات, علاج التسوس, إزالة الجير, الدكتورة دينا أحمد">
+  <meta name="author" content="الدكتورة دينا أحمد">
+  <meta name="theme-color" content="#062A35">
+  <meta property="og:title" content="الدكتورة دينا أحمد | عيادة أسنان متخصصة">
+  <meta property="og:description" content="ابتسامتك تبدأ بالعناية الصحيحة — احجز موعدك مع الدكتورة دينا أحمد.">
+  <meta property="og:type" content="website">
+
+  <!-- أيقونة الموقع (SVG مدمجة بدون ملفات خارجية) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 8C30 8 20 24 21 42c1 15 8 20 9 35 1 12 6 17 10 15 4-2 2-17 10-17s6 15 10 17c4 2 9-3 10-15 1-15 8-20 9-35C80 24 70 8 50 8z' fill='%2325C6B4'/%3E%3C/svg%3E">
+
+  <!-- ============ مكتبات CDN ============ -->
+  <!-- Bootstrap 5 (نسخة RTL) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <!-- خطوط Google: القاهرة وتجوال -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- مكتبة AOS للحركات أثناء التمرير -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+  <style>
+    /* =====================================================
+       نظام التصميم — الدكتورة دينا أحمد
+       لوحة الألوان: تيل عميق (بحري) + فيروزي مضيء + لؤلؤي + لمسة ذهبية
+       ===================================================== */
+    :root {
+      --deep: #062A35;          /* التيل العميق: خلفية الأقسام الداكنة */
+      --deep-2: #0A3948;        /* درجة أفتح قليلاً للتدرجات */
+      --aqua: #25C6B4;          /* الفيروزي: اللون الأساسي للهوية */
+      --aqua-soft: #7FE7DB;     /* فيروزي فاتح للتوهجات */
+      --pearl: #F5FBFA;         /* اللؤلؤي: خلفية الأقسام الفاتحة */
+      --ink: #12333C;           /* لون النصوص الأساسية */
+      --muted: #5D7B83;         /* لون النصوص الثانوية */
+      --gold: #D9B36A;          /* لمسة ذهبية للتفاصيل الفاخرة */
+      --card-bg: #FFFFFF;
+      --shadow-soft: 0 20px 50px -18px rgba(6, 42, 53, .22);
+      --shadow-glow: 0 0 40px rgba(37, 198, 180, .35);
+      --radius: 22px;
+      --radius-lg: 32px;
+    }
+
+    /* ============ أساسيات عامة ============ */
+    * { -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Tajawal', sans-serif;
+      color: var(--ink);
+      background: var(--pearl);
+      overflow-x: hidden;
+      line-height: 1.9;
+    }
+    h1, h2, h3, h4, h5, .brand-font { font-family: 'Cairo', sans-serif; }
+    ::selection { background: var(--aqua); color: #fff; }
+
+    /* شريط التمرير المخصص */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: var(--pearl); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(var(--aqua), var(--deep)); border-radius: 10px; }
+
+    /* ============ شاشة التحميل ============ */
+    #loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: radial-gradient(circle at 50% 40%, var(--deep-2), var(--deep) 70%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity .7s ease, visibility .7s ease;
+    }
+    #loader.hide { opacity: 0; visibility: hidden; }
+    .loader-tooth {
+      width: 90px; height: 90px;
+      filter: drop-shadow(0 0 18px rgba(37,198,180,.6));
+      animation: loaderPulse 1.4s ease-in-out infinite;
+    }
+    @keyframes loaderPulse {
+      0%, 100% { transform: scale(1); opacity: .85; }
+      50% { transform: scale(1.12); opacity: 1; }
+    }
+    .loader-text {
+      margin-top: 18px; color: var(--aqua-soft);
+      font-family: 'Cairo'; font-weight: 700; letter-spacing: 1px;
+    }
+    .loader-bar {
+      width: 180px; height: 3px; margin-top: 16px; border-radius: 3px;
+      background: rgba(255,255,255,.12); overflow: hidden;
+    }
+    .loader-bar::after {
+      content: ''; display: block; height: 100%; width: 40%;
+      background: linear-gradient(90deg, transparent, var(--aqua), transparent);
+      animation: loaderSlide 1.1s linear infinite;
+    }
+    @keyframes loaderSlide { from { transform: translateX(220%); } to { transform: translateX(-220%); } }
+
+    /* ============ شريط تقدم التمرير ============ */
+    #scrollProgress {
+      position: fixed; top: 0; right: 0; height: 4px; width: 0%;
+      background: linear-gradient(90deg, var(--gold), var(--aqua));
+      z-index: 3000; border-radius: 0 0 0 4px;
+      box-shadow: 0 0 12px rgba(37,198,180,.7);
+    }
+
+    /* ============ توهج مؤشر الفأرة ============ */
+    #mouseGlow {
+      position: fixed; width: 420px; height: 420px; border-radius: 50%;
+      pointer-events: none; z-index: 1;
+      background: radial-gradient(circle, rgba(37,198,180,.10) 0%, transparent 65%);
+      transform: translate(-50%, -50%);
+      transition: opacity .4s;
+    }
+
+    /* ============ شريط التنقل الزجاجي ============ */
+    .navbar-glass {
+      background: rgba(6, 42, 53, .55);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      transition: background .4s, box-shadow .4s, padding .4s;
+      padding-block: 14px;
+    }
+    .navbar-glass.scrolled {
+      background: rgba(6, 42, 53, .88);
+      box-shadow: 0 10px 30px -12px rgba(0,0,0,.45);
+      padding-block: 8px;
+    }
+    .navbar-brand { color: #fff !important; font-weight: 800; font-size: 1.25rem; display: flex; align-items: center; gap: 10px; }
+    .navbar-brand .brand-mark {
+      width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--aqua), #159a8b);
+      box-shadow: var(--shadow-glow);
+    }
+    .navbar-nav .nav-link {
+      color: rgba(255,255,255,.82) !important; font-weight: 500; margin-inline: 4px;
+      position: relative; transition: color .3s;
+    }
+    .navbar-nav .nav-link::after {
+      content: ''; position: absolute; bottom: 4px; right: 50%; transform: translateX(50%);
+      width: 0; height: 2px; border-radius: 2px; background: var(--aqua); transition: width .3s;
+    }
+    .navbar-nav .nav-link:hover::after, .navbar-nav .nav-link.active::after { width: 60%; }
+    .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: var(--aqua-soft) !important; }
+    .btn-nav-book {
+      background: linear-gradient(135deg, var(--aqua), #17a394);
+      color: #fff; border: none; border-radius: 50px; padding: 9px 24px; font-weight: 700;
+      box-shadow: 0 8px 22px -8px rgba(37,198,180,.8); transition: transform .3s, box-shadow .3s;
+    }
+    .btn-nav-book:hover { transform: translateY(-2px); box-shadow: 0 14px 28px -8px rgba(37,198,180,.9); color: #fff; }
+    .navbar-toggler { border-color: rgba(255,255,255,.25); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    /* ============ الواجهة الرئيسية (Hero) ============ */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
+      background:
+        radial-gradient(1200px 600px at 85% 15%, rgba(37,198,180,.14), transparent 60%),
+        radial-gradient(900px 500px at 10% 85%, rgba(217,179,106,.08), transparent 60%),
+        linear-gradient(160deg, var(--deep) 0%, var(--deep-2) 55%, #07333F 100%);
+      overflow: hidden; color: #fff;
+      padding-top: 110px; padding-bottom: 60px;
+    }
+    /* شبكة طبية خفيفة متحركة في الخلفية */
+    .hero::before {
+      content: ''; position: absolute; inset: 0; opacity: .35;
+      background-image:
+        linear-gradient(rgba(127,231,219,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(127,231,219,.05) 1px, transparent 1px);
+      background-size: 54px 54px;
+      animation: gridDrift 26s linear infinite;
+    }
+    @keyframes gridDrift { from { background-position: 0 0, 0 0; } to { background-position: 54px 54px, 54px 54px; } }
+
+    /* خط نبض القلب الطبي المتحرك أسفل الواجهة */
+    .pulse-line {
+      position: absolute; bottom: 40px; right: 0; left: 0; height: 70px; opacity: .5; pointer-events: none;
+    }
+    .pulse-line path {
+      stroke: var(--aqua); stroke-width: 2; fill: none;
+      stroke-dasharray: 900; stroke-dashoffset: 900;
+      filter: drop-shadow(0 0 6px var(--aqua));
+      animation: pulseDraw 5s linear infinite;
+    }
+    @keyframes pulseDraw { to { stroke-dashoffset: -900; } }
+
+    /* جزيئات مضيئة عائمة */
+    .particle {
+      position: absolute; border-radius: 50%; pointer-events: none;
+      background: radial-gradient(circle, var(--aqua-soft), transparent 70%);
+      animation: floatUp linear infinite;
+      opacity: 0;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(.6); opacity: 0; }
+      15% { opacity: .8; }
+      85% { opacity: .5; }
+      100% { transform: translateY(-92vh) scale(1.15); opacity: 0; }
+    }
+
+    /* أيقونات أسنان عائمة شفافة */
+    .float-icon {
+      position: absolute; color: rgba(127,231,219,.12); pointer-events: none;
+      animation: iconSway 9s ease-in-out infinite;
+    }
+    @keyframes iconSway {
+      0%, 100% { transform: translateY(0) rotate(-6deg); }
+      50% { transform: translateY(-26px) rotate(8deg); }
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(127,231,219,.3);
+      color: var(--aqua-soft); border-radius: 50px; padding: 7px 18px;
+      font-size: .95rem; backdrop-filter: blur(8px);
+    }
+    .hero h1 {
+      font-weight: 900; font-size: clamp(2.3rem, 5.4vw, 4rem); line-height: 1.35; margin-top: 22px;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(90deg, var(--aqua-soft), var(--aqua) 50%, var(--gold));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero-tagline {
+      font-family: 'Cairo'; font-weight: 700; font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+      color: var(--aqua-soft); margin-top: 6px;
+    }
+    .hero-desc { color: rgba(255,255,255,.72); max-width: 540px; font-size: 1.06rem; margin-top: 14px; }
+
+    .btn-hero {
+      border-radius: 50px; padding: 13px 34px; font-weight: 700; font-size: 1.05rem;
+      position: relative; overflow: hidden; transition: transform .3s, box-shadow .3s;
+    }
+    .btn-hero-primary {
+      background: linear-gradient(135deg, var(--aqua), #14988a); color: #fff; border: none;
+      box-shadow: 0 14px 34px -10px rgba(37,198,180,.75);
+    }
+    .btn-hero-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 42px -10px rgba(37,198,180,.9); color: #fff; }
+    .btn-hero-ghost {
+      background: rgba(255,255,255,.06); color: #fff; border: 1px solid rgba(255,255,255,.3);
+      backdrop-filter: blur(8px);
+    }
+    .btn-hero-ghost:hover { background: rgba(255,255,255,.14); color: #fff; transform: translateY(-3px); }
+
+    /* إحصائيات سريعة تحت الأزرار */
+    .hero-stats { display: flex; gap: 34px; margin-top: 44px; flex-wrap: wrap; }
+    .hero-stat .num { font-family: 'Cairo'; font-weight: 800; font-size: 1.9rem; color: #fff; }
+    .hero-stat .num span.plus { color: var(--aqua); }
+    .hero-stat .lbl { color: rgba(255,255,255,.6); font-size: .92rem; }
+
+    /* ============ مشهد السن ثلاثي الأبعاد ============ */
+    .tooth-scene {
+      position: relative; width: min(440px, 90%); aspect-ratio: 1; margin-inline: auto;
+      display: grid; place-items: center; perspective: 900px;
+    }
+    /* الحلقات الضوئية المدارية حول السن */
+    .orbit {
+      position: absolute; inset: 0; border-radius: 50%;
+      border: 1px dashed rgba(127,231,219,.35);
+      animation: orbitSpin 22s linear infinite;
+    }
+    .orbit.o2 { inset: 9%; border-color: rgba(217,179,106,.28); animation-duration: 30s; animation-direction: reverse; border-style: dotted; }
+    .orbit.o3 { inset: 20%; border-color: rgba(127,231,219,.22); animation-duration: 16s; }
+    @keyframes orbitSpin { to { transform: rotate(360deg); } }
+    /* نقاط ضوئية تدور على الحلقات */
+    .orbit .dot {
+      position: absolute; top: -6px; right: 50%; width: 12px; height: 12px; border-radius: 50%;
+      background: var(--aqua); box-shadow: 0 0 16px 4px rgba(37,198,180,.65);
+    }
+    .orbit.o2 .dot { background: var(--gold); box-shadow: 0 0 14px 3px rgba(217,179,106,.6); width: 9px; height: 9px; }
+
+    /* السن نفسه: يدور ببطء ويطفو */
+    .tooth-3d {
+      width: 58%; will-change: transform;
+      filter: drop-shadow(0 25px 45px rgba(0,0,0,.4)) drop-shadow(0 0 30px rgba(37,198,180,.35));
+      animation: toothFloat 6s ease-in-out infinite;
+      transition: transform .2s ease-out;
+    }
+    @keyframes toothFloat {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -18px; }
+    }
+    .tooth-3d .sparkle { animation: sparkleBlink 2.6s ease-in-out infinite; transform-origin: center; }
+    .tooth-3d .sparkle.s2 { animation-delay: 1.2s; }
+    @keyframes sparkleBlink {
+      0%, 100% { opacity: 0; transform: scale(.4) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1) rotate(90deg); }
+    }
+    /* هالة توهج خلف السن */
+    .tooth-halo {
+      position: absolute; width: 62%; aspect-ratio: 1; border-radius: 50%;
+      background: radial-gradient(circle, rgba(37,198,180,.28), transparent 65%);
+      animation: haloBreath 5s ease-in-out infinite;
+    }
+    @keyframes haloBreath { 0%,100% { transform: scale(.92); opacity: .7; } 50% { transform: scale(1.1); opacity: 1; } }
+
+    /* بطاقات زجاجية صغيرة عائمة حول السن */
+    .mini-card {
+      position: absolute; padding: 10px 16px; border-radius: 16px;
+      background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      color: #fff; font-size: .88rem; font-weight: 600; display: flex; align-items: center; gap: 8px;
+      box-shadow: 0 14px 30px -12px rgba(0,0,0,.4);
+      animation: iconSway 8s ease-in-out infinite;
+    }
+    .mini-card i { color: var(--aqua-soft); }
+    .mini-card.mc1 { top: 12%; right: -4%; animation-delay: .8s; }
+    .mini-card.mc2 { bottom: 16%; left: -6%; animation-delay: 2s; }
+    .mini-card.mc3 { top: 46%; left: -10%; animation-delay: 3.2s; }
+
+    /* ============ العناوين العامة للأقسام ============ */
+    section { position: relative; }
+    .section-pad { padding-block: 96px; }
+    .sec-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; color: var(--aqua);
+      font-weight: 700; font-size: .95rem; letter-spacing: .5px;
+      background: rgba(37,198,180,.1); border-radius: 50px; padding: 6px 18px;
+    }
+    .sec-title { font-weight: 800; font-size: clamp(1.7rem, 3.4vw, 2.5rem); margin-top: 16px; }
+    .sec-sub { color: var(--muted); max-width: 640px; margin-inline: auto; }
+    .title-line {
+      width: 70px; height: 4px; border-radius: 4px; margin: 18px auto 0;
+      background: linear-gradient(90deg, var(--gold), var(--aqua));
+    }
+
+    /* ============ قسم النبذة ============ */
+    .about-visual {
+      position: relative; border-radius: var(--radius-lg); overflow: hidden;
+      background: linear-gradient(160deg, var(--deep), var(--deep-2));
+      min-height: 430px; display: grid; place-items: center;
+      box-shadow: var(--shadow-soft);
+    }
+    .about-visual .ring {
+      position: absolute; border-radius: 50%; border: 1px solid rgba(127,231,219,.25);
+      animation: haloBreath 6s ease-in-out infinite;
+    }
+    .about-visual svg { width: 55%; filter: drop-shadow(0 18px 34px rgba(0,0,0,.35)); }
+    .about-chip {
+      position: absolute; bottom: 22px; right: 22px; left: 22px;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+      backdrop-filter: blur(14px); border-radius: 18px; padding: 14px 18px; color: #fff;
+      display: flex; align-items: center; gap: 12px; font-weight: 600;
+    }
+    .about-chip i { color: var(--gold); font-size: 1.4rem; }
+    .about-points { list-style: none; padding: 0; margin-top: 26px; }
+    .about-points li { display: flex; gap: 12px; margin-bottom: 14px; color: var(--ink); font-weight: 500; }
+    .about-points i {
+      flex-shrink: 0; width: 34px; height: 34px; border-radius: 12px; display: grid; place-items: center;
+      background: rgba(37,198,180,.12); color: var(--aqua); font-size: .9rem; margin-top: 3px;
+    }
+
+    /* ============ بطاقات الخبرات (نيومورفيزم خفيف) ============ */
+    .expertise-section { background: linear-gradient(180deg, #EDF6F4, var(--pearl)); }
+    .exp-card {
+      background: var(--pearl); border-radius: var(--radius); padding: 38px 28px; text-align: center;
+      border: 1px solid rgba(255,255,255,.9); height: 100%;
+      box-shadow: 9px 9px 22px rgba(6,42,53,.08), -9px -9px 22px rgba(255,255,255,.95);
+      transition: transform .4s, box-shadow .4s;
+    }
+    .exp-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 14px 18px 34px rgba(6,42,53,.13), -9px -9px 22px #fff, 0 0 0 1px rgba(37,198,180,.25);
+    }
+    .exp-icon {
+      width: 78px; height: 78px; margin-inline: auto; border-radius: 26px; display: grid; place-items: center;
+      font-size: 1.9rem; color: #fff;
+      background: linear-gradient(135deg, var(--aqua), #128d80);
+      box-shadow: inset 0 -4px 10px rgba(0,0,0,.15), 0 12px 24px -8px rgba(37,198,180,.6);
+      transition: transform .4s;
+    }
+    .exp-card:hover .exp-icon { transform: rotate(-8deg) scale(1.08); }
+    .exp-card.gold .exp-icon { background: linear-gradient(135deg, var(--gold), #b98f43); box-shadow: inset 0 -4px 10px rgba(0,0,0,.15), 0 12px 24px -8px rgba(217,179,106,.6); }
+    .exp-card.deep .exp-icon { background: linear-gradient(135deg, #2a6a7d, var(--deep-2)); box-shadow: inset 0 -4px 10px rgba(0,0,0,.2), 0 12px 24px -8px rgba(10,57,72,.55); }
+    .exp-tag { font-size: .8rem; color: var(--muted); background: rgba(6,42,53,.05); border-radius: 50px; padding: 4px 14px; display: inline-block; margin-top: 14px; }
+
+    /* ============ بطاقات الخدمات ============ */
+    .services-section {
+      background:
+        radial-gradient(800px 400px at 90% 10%, rgba(37,198,180,.12), transparent 60%),
+        linear-gradient(180deg, var(--deep), var(--deep-2));
+      color: #fff;
+    }
+    .services-section .sec-sub { color: rgba(255,255,255,.65); }
+    .srv-card {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--radius); padding: 30px 24px; height: 100%;
+      position: relative; overflow: hidden; transition: transform .4s, border-color .4s, background .4s;
+    }
+    .srv-card::before {
+      content: ''; position: absolute; top: 0; right: 0; width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--aqua), transparent); transform: scaleX(0);
+      transform-origin: right; transition: transform .5s;
+    }
+    .srv-card:hover { transform: translateY(-9px); border-color: rgba(37,198,180,.45); background: rgba(255,255,255,.09); }
+    .srv-card:hover::before { transform: scaleX(1); }
+    .srv-icon {
+      width: 62px; height: 62px; border-radius: 20px; display: grid; place-items: center;
+      background: linear-gradient(135deg, rgba(37,198,180,.22), rgba(37,198,180,.06));
+      border: 1px solid rgba(127,231,219,.3); color: var(--aqua-soft); font-size: 1.5rem;
+      margin-bottom: 18px; transition: transform .4s, box-shadow .4s;
+    }
+    .srv-card:hover .srv-icon { transform: scale(1.1) rotate(6deg); box-shadow: var(--shadow-glow); }
+    .srv-card h5 { font-weight: 700; }
+    .srv-card p { color: rgba(255,255,255,.62); font-size: .95rem; margin: 0; }
+
+    /* ============ لماذا تختارنا ============ */
+    .why-card {
+      background: var(--card-bg); border-radius: var(--radius); padding: 30px 26px; height: 100%;
+      border: 1px solid rgba(6,42,53,.06); box-shadow: var(--shadow-soft);
+      display: flex; gap: 18px; align-items: flex-start;
+      transition: transform .4s, box-shadow .4s;
+    }
+    .why-card:hover { transform: translateY(-6px); box-shadow: 0 26px 55px -18px rgba(6,42,53,.3); }
+    .why-icon {
+      flex-shrink: 0; width: 58px; height: 58px; border-radius: 18px; display: grid; place-items: center;
+      color: #fff; font-size: 1.35rem; background: linear-gradient(135deg, var(--deep-2), #14586b);
+      box-shadow: 0 10px 20px -8px rgba(10,57,72,.5);
+    }
+    .why-card:nth-child(even) .why-icon { background: linear-gradient(135deg, var(--aqua), #14988a); }
+    .why-card h5 { font-weight: 700; font-size: 1.08rem; }
+    .why-card p { color: var(--muted); font-size: .93rem; margin: 0; }
+
+    /* ============ آراء المرضى ============ */
+    .testi-section { background: linear-gradient(180deg, var(--pearl), #E9F4F2); }
+    .testi-card {
+      background: #fff; border-radius: var(--radius-lg); padding: 36px 30px; height: 100%;
+      box-shadow: var(--shadow-soft); position: relative; transition: transform .4s;
+    }
+    .testi-card:hover { transform: translateY(-7px); }
+    .testi-card .quote-mark {
+      position: absolute; top: 20px; left: 26px; font-size: 3.4rem; line-height: 1;
+      color: rgba(37,198,180,.14); font-family: serif;
+    }
+    .testi-stars { color: var(--gold); font-size: .95rem; letter-spacing: 2px; }
+    .testi-text { color: var(--ink); margin-block: 16px; font-size: 1rem; }
+    .testi-user { display: flex; align-items: center; gap: 13px; }
+    .testi-avatar {
+      width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center;
+      font-family: 'Cairo'; font-weight: 800; color: #fff;
+      background: linear-gradient(135deg, var(--aqua), var(--deep-2));
+    }
+    .testi-user .name { font-weight: 700; font-size: .98rem; }
+    .testi-user .role { color: var(--muted); font-size: .82rem; }
+
+    /* ============ نموذج الحجز ============ */
+    .booking-section {
+      background:
+        radial-gradient(700px 400px at 12% 20%, rgba(37,198,180,.14), transparent 60%),
+        radial-gradient(600px 350px at 88% 85%, rgba(217,179,106,.1), transparent 60%),
+        linear-gradient(160deg, var(--deep) 0%, var(--deep-2) 100%);
+      color: #fff;
+    }
+    .booking-glass {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.15);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--radius-lg); padding: clamp(26px, 4vw, 52px);
+      box-shadow: 0 30px 70px -20px rgba(0,0,0,.5);
+    }
+    .booking-glass .form-label { color: var(--aqua-soft); font-weight: 600; font-size: .93rem; }
+    .booking-glass .form-control, .booking-glass .form-select {
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18);
+      color: #fff; border-radius: 14px; padding: 12px 16px; transition: border-color .3s, box-shadow .3s, background .3s;
+    }
+    .booking-glass .form-control::placeholder { color: rgba(255,255,255,.4); }
+    .booking-glass .form-control:focus, .booking-glass .form-select:focus {
+      background: rgba(255,255,255,.12); border-color: var(--aqua);
+      box-shadow: 0 0 0 4px rgba(37,198,180,.18); color: #fff;
+    }
+    .booking-glass .form-select option { background: var(--deep); color: #fff; }
+    /* إصلاح لون أيقونة التقويم في المتصفحات الداكنة */
+    .booking-glass input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
+    /* أزرار الفترة (صباحاً/ظهراً/مساءً) */
+    .period-check { display: none; }
+    .period-label {
+      display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;
+      border: 1px solid rgba(255,255,255,.2); border-radius: 14px; padding: 12px 10px;
+      background: rgba(255,255,255,.06); font-weight: 600; transition: all .3s; width: 100%;
+    }
+    .period-label i { color: var(--aqua-soft); }
+    .period-check:checked + .period-label {
+      background: linear-gradient(135deg, rgba(37,198,180,.35), rgba(37,198,180,.15));
+      border-color: var(--aqua); box-shadow: 0 0 0 3px rgba(37,198,180,.15), var(--shadow-glow);
+    }
+    .btn-submit-booking {
+      background: linear-gradient(135deg, var(--aqua), #129688); color: #fff; border: none;
+      border-radius: 50px; padding: 15px 30px; font-weight: 800; font-size: 1.1rem; width: 100%;
+      font-family: 'Cairo'; position: relative; overflow: hidden;
+      box-shadow: 0 16px 38px -10px rgba(37,198,180,.75); transition: transform .3s, box-shadow .3s;
+    }
+    .btn-submit-booking:hover { transform: translateY(-3px); box-shadow: 0 22px 46px -10px rgba(37,198,180,.9); }
+    .btn-submit-booking:disabled { opacity: .7; transform: none; }
+    .booking-side h3 { font-weight: 800; }
+    .booking-side p { color: rgba(255,255,255,.68); }
+    .booking-feature { display: flex; gap: 14px; align-items: center; margin-bottom: 18px; }
+    .booking-feature .ic {
+      width: 48px; height: 48px; flex-shrink: 0; border-radius: 16px; display: grid; place-items: center;
+      background: rgba(37,198,180,.16); border: 1px solid rgba(127,231,219,.3); color: var(--aqua-soft); font-size: 1.15rem;
+    }
+    .booking-feature .t { font-weight: 700; font-size: .98rem; }
+    .booking-feature .s { color: rgba(255,255,255,.55); font-size: .85rem; }
+
+    /* ============ قسم التواصل ============ */
+    .contact-card {
+      border-radius: var(--radius-lg); padding: 38px 30px; text-align: center; height: 100%;
+      background: #fff; box-shadow: var(--shadow-soft); border: 1px solid rgba(6,42,53,.05);
+      transition: transform .4s, box-shadow .4s; text-decoration: none; display: block; color: var(--ink);
+    }
+    .contact-card:hover { transform: translateY(-8px); color: var(--ink); box-shadow: 0 30px 60px -18px rgba(6,42,53,.28); }
+    .contact-icon {
+      width: 84px; height: 84px; margin-inline: auto; border-radius: 28px; display: grid; place-items: center;
+      font-size: 2.2rem; color: #fff; margin-bottom: 20px; transition: transform .4s;
+    }
+    .contact-card:hover .contact-icon { transform: scale(1.1) rotate(-6deg); }
+    .contact-icon.ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); box-shadow: 0 14px 30px -10px rgba(220,39,67,.55); }
+    .contact-icon.tg { background: linear-gradient(135deg, #2AABEE, #229ED9); box-shadow: 0 14px 30px -10px rgba(42,171,238,.55); }
+    .contact-card .handle { color: var(--muted); direction: ltr; display: inline-block; font-size: .95rem; }
+
+    /* ============ التذييل ============ */
+    footer {
+      background: linear-gradient(180deg, var(--deep-2), #04212A);
+      color: rgba(255,255,255,.75); padding: 70px 0 26px; position: relative; overflow: hidden;
+    }
+    footer::before {
+      content: ''; position: absolute; top: 0; right: 0; left: 0; height: 3px;
+      background: linear-gradient(90deg, transparent, var(--aqua), var(--gold), transparent);
+    }
+    .footer-brand { font-family: 'Cairo'; font-weight: 800; font-size: 1.5rem; color: #fff; display: flex; align-items: center; gap: 12px; }
+    .footer-quote { color: var(--aqua-soft); font-family: 'Cairo'; font-weight: 600; margin-top: 10px; }
+    .footer-social a {
+      width: 46px; height: 46px; border-radius: 15px; display: inline-grid; place-items: center;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); color: #fff;
+      font-size: 1.15rem; margin-inline-start: 10px; transition: all .3s;
+    }
+    .footer-social a:hover { background: var(--aqua); border-color: var(--aqua); transform: translateY(-4px); box-shadow: var(--shadow-glow); }
+    .footer-links a { color: rgba(255,255,255,.6); text-decoration: none; display: block; margin-bottom: 10px; transition: color .3s, padding .3s; }
+    .footer-links a:hover { color: var(--aqua-soft); padding-inline-start: 6px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); margin-top: 44px; padding-top: 22px; font-size: .88rem; color: rgba(255,255,255,.45); }
+
+    /* ============ زر العودة للأعلى ============ */
+    #backToTop {
+      position: fixed; bottom: 26px; left: 26px; z-index: 1500;
+      width: 52px; height: 52px; border-radius: 18px; border: none;
+      background: linear-gradient(135deg, var(--aqua), #14988a); color: #fff; font-size: 1.15rem;
+      box-shadow: 0 14px 30px -10px rgba(37,198,180,.8);
+      opacity: 0; visibility: hidden; transform: translateY(16px);
+      transition: all .4s;
+    }
+    #backToTop.show { opacity: 1; visibility: visible; transform: translateY(0); }
+    #backToTop:hover { transform: translateY(-4px); }
+
+    /* ============ تأثير التموج للأزرار (Ripple) ============ */
+    .ripple-wave {
+      position: absolute; border-radius: 50%; background: rgba(255,255,255,.45);
+      transform: scale(0); animation: rippleAnim .65s ease-out; pointer-events: none;
+    }
+    @keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
+
+    /* ============ العدادات المتحركة ============ */
+    .counter-box { text-align: center; }
+    .counter-box .cnum { font-family: 'Cairo'; font-weight: 900; font-size: clamp(2rem, 4vw, 2.9rem); color: var(--deep); }
+    .counter-box .cnum .sign { color: var(--aqua); }
+    .counter-box .clbl { color: var(--muted); font-weight: 500; }
+
+    /* ============ احترام تفضيل تقليل الحركة ============ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ============ استجابة الشاشات الصغيرة ============ */
+    @media (max-width: 991px) {
+      .hero { text-align: center; }
+      .hero-desc, .hero-stats { margin-inline: auto; justify-content: center; }
+      .tooth-scene { margin-top: 50px; }
+      .mini-card.mc3 { display: none; }
+    }
+    @media (max-width: 575px) {
+      .section-pad { padding-block: 70px; }
+      .mini-card { font-size: .78rem; padding: 8px 12px; }
+      .mini-card.mc1 { right: 0; }
+      .mini-card.mc2 { left: 0; }
+      #mouseGlow { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ شاشة التحميل ============ -->
+  <div id="loader" aria-hidden="true">
+    <svg class="loader-tooth" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 8C30 8 20 24 21 42c1 15 8 20 9 35 1 12 6 17 10 15 4-2 2-17 10-17s6 15 10 17c4 2 9-3 10-15 1-15 8-20 9-35C80 24 70 8 50 8z" fill="none" stroke="#7FE7DB" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <div class="loader-text">الدكتورة دينا أحمد</div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- شريط تقدم التمرير -->
+  <div id="scrollProgress"></div>
+
+  <!-- توهج مؤشر الفأرة -->
+  <div id="mouseGlow"></div>
+
+  <!-- ============ شريط التنقل ============ -->
+  <nav class="navbar navbar-expand-lg navbar-glass fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="#hero">
+        <span class="brand-mark">
+          <svg width="24" height="24" viewBox="0 0 100 100"><path d="M50 8C30 8 20 24 21 42c1 15 8 20 9 35 1 12 6 17 10 15 4-2 2-17 10-17s6 15 10 17c4 2 9-3 10-15 1-15 8-20 9-35C80 24 70 8 50 8z" fill="#fff"/></svg>
+        </span>
+        د. دينا أحمد
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="فتح القائمة">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#hero">الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">نبذة</a></li>
+          <li class="nav-item"><a class="nav-link" href="#expertise">الخبرات</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">الخدمات</a></li>
+          <li class="nav-item"><a class="nav-link" href="#why">لماذا نحن</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">آراء المرضى</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">التواصل</a></li>
+        </ul>
+        <a href="#booking" class="btn btn-nav-book ripple"><i class="fa-regular fa-calendar-check ms-1"></i> احجز موعد</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ الواجهة الرئيسية ============ -->
+  <header class="hero" id="hero">
+    <!-- حاوية الجزيئات المضيئة (تُولَّد عبر JavaScript) -->
+    <div id="particles" aria-hidden="true"></div>
+
+    <!-- أيقونات أسنان عائمة في الخلفية -->
+    <i class="fa-solid fa-tooth float-icon" style="top:14%; right:6%; font-size:2.6rem;" aria-hidden="true"></i>
+    <i class="fa-solid fa-teeth float-icon" style="top:64%; right:12%; font-size:2.2rem; animation-delay:2s;" aria-hidden="true"></i>
+    <i class="fa-solid fa-tooth float-icon" style="top:22%; left:8%; font-size:2rem; animation-delay:4s;" aria-hidden="true"></i>
+    <i class="fa-solid fa-teeth-open float-icon" style="bottom:14%; left:16%; font-size:2.4rem; animation-delay:1s;" aria-hidden="true"></i>
+    <i class="fa-solid fa-hand-holding-medical float-icon" style="bottom:30%; right:40%; font-size:2rem; animation-delay:3s;" aria-hidden="true"></i>
+
+    <!-- خط النبض الطبي المتحرك -->
+    <svg class="pulse-line" viewBox="0 0 1200 70" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,35 H180 l14,-16 14,32 16,-46 16,52 14,-22 10,0 H480 l14,-16 14,32 16,-46 16,52 14,-22 10,0 H860 l14,-16 14,32 16,-46 16,52 14,-22 10,0 H1200"/>
+    </svg>
+
+    <div class="container position-relative" style="z-index:2;">
+      <div class="row align-items-center">
+        <!-- النص التعريفي -->
+        <div class="col-lg-6">
+          <span class="hero-badge" data-aos="fade-down"><i class="fa-solid fa-shield-heart"></i> عيادة أسنان متخصصة — رعاية بمعايير عالمية</span>
+          <h1 data-aos="fade-up" data-aos-delay="100">الدكتورة <span class="grad">دينا أحمد</span></h1>
+          <div class="hero-tagline" data-aos="fade-up" data-aos-delay="180">ابتسامتك تبدأ بالعناية الصحيحة.</div>
+          <p class="hero-desc" data-aos="fade-up" data-aos-delay="260">
+            رعاية شاملة لصحة فمك وأسنانك تجمع بين الدقة العلمية واللمسة الإنسانية، بأحدث التقنيات
+            وأعلى معايير التعقيم، وخطة علاجية مصممة خصيصاً لك — لأن كل ابتسامة تستحق عناية استثنائية.
+          </p>
+          <div class="d-flex gap-3 flex-wrap mt-4 justify-content-lg-start justify-content-center" data-aos="fade-up" data-aos-delay="340">
+            <a href="#booking" class="btn btn-hero btn-hero-primary ripple"><i class="fa-regular fa-calendar-check ms-2"></i>احجز موعد</a>
+            <a href="#contact" class="btn btn-hero btn-hero-ghost ripple"><i class="fa-regular fa-comment-dots ms-2"></i>تواصل معنا</a>
+          </div>
+          <!-- إحصائيات سريعة -->
+          <div class="hero-stats" data-aos="fade-up" data-aos-delay="420">
+            <div class="hero-stat">
+              <div class="num"><span class="counter" data-target="1200">0</span><span class="plus">+</span></div>
+              <div class="lbl">ابتسامة متجددة</div>
+            </div>
+            <div class="hero-stat">
+              <div class="num"><span class="counter" data-target="98">0</span><span class="plus">%</span></div>
+              <div class="lbl">نسبة رضا المرضى</div>
+            </div>
+            <div class="hero-stat">
+              <div class="num"><span class="counter" data-target="8">0</span><span class="plus">+</span></div>
+              <div class="lbl">خدمات علاجية</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- مشهد السن ثلاثي الأبعاد مع الحلقات المدارية -->
+        <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="200">
+          <div class="tooth-scene" id="toothScene">
+            <div class="tooth-halo"></div>
+            <div class="orbit"><span class="dot"></span></div>
+            <div class="orbit o2"><span class="dot"></span></div>
+            <div class="orbit o3"></div>
+
+            <!-- رسم السن SVG بتدرجات لؤلؤية وبريق متحرك -->
+            <svg class="tooth-3d" id="tooth3d" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="رسم توضيحي لسن مضيء">
+              <defs>
+                <linearGradient id="toothGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#FFFFFF"/>
+                  <stop offset="45%" stop-color="#EAF7F5"/>
+                  <stop offset="100%" stop-color="#B8E4DE"/>
+                </linearGradient>
+                <radialGradient id="toothShine" cx="35%" cy="25%" r="60%">
+                  <stop offset="0%" stop-color="#FFFFFF" stop-opacity=".95"/>
+                  <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <!-- جسم السن -->
+              <path d="M100 12C58 12 36 44 38 82c2 30 16 40 18 70 2 26 13 38 22 33 9-5 5-36 22-36s13 31 22 36c9 5 20-7 22-33 2-30 16-40 18-70 2-38-20-70-62-70z"
+                    fill="url(#toothGrad)" stroke="#7FE7DB" stroke-width="2.5" stroke-opacity=".6"/>
+              <!-- انعكاس لؤلؤي -->
+              <ellipse cx="72" cy="60" rx="26" ry="34" fill="url(#toothShine)"/>
+              <!-- بريق متلألئ -->
+              <g class="sparkle" fill="#FFFFFF">
+                <path d="M148 40 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4z"/>
+              </g>
+              <g class="sparkle s2" fill="#7FE7DB">
+                <path d="M56 118 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z"/>
+              </g>
+            </svg>
+
+            <!-- بطاقات زجاجية عائمة -->
+            <div class="mini-card mc1"><i class="fa-solid fa-star"></i> تقييم 4.9 من المرضى</div>
+            <div class="mini-card mc2"><i class="fa-solid fa-shield-virus"></i> تعقيم بمعايير عالمية</div>
+            <div class="mini-card mc3"><i class="fa-solid fa-microscope"></i> أحدث التقنيات</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ قسم النبذة ============ -->
+  <section class="section-pad" id="about">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5" data-aos="fade-left">
+          <div class="about-visual">
+            <span class="ring" style="width:78%; aspect-ratio:1;"></span>
+            <span class="ring" style="width:58%; aspect-ratio:1; animation-delay:1.4s;"></span>
+            <!-- رمز طبي: سن داخل درع للدلالة على الرعاية والحماية -->
+            <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M100 10 L178 40 v70 c0 52 -36 84 -78 98 C58 194 22 162 22 110 V40 Z" fill="rgba(37,198,180,.10)" stroke="#25C6B4" stroke-width="2"/>
+              <path d="M100 52c-24 0-36 18-35 40 1 17 9 23 10 40 1 15 7 22 12 19 5-3 3-21 13-21s8 18 13 21c5 3 11-4 12-19 1-17 9-23 10-40 1-22-11-40-35-40z" fill="#EAF7F5" stroke="#7FE7DB" stroke-width="2"/>
+            </svg>
+            <div class="about-chip">
+              <i class="fa-solid fa-award"></i>
+              <div>رعاية موثوقة قائمة على أحدث البروتوكولات الطبية</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7" data-aos="fade-right">
+          <span class="sec-eyebrow"><i class="fa-regular fa-user"></i> نبذة عن الطبيبة</span>
+          <h2 class="sec-title">رعاية تجمع بين العلم والفن<br>واهتمام يبدأ من أول زيارة</h2>
+          <p class="mt-3" style="color:var(--muted); font-size:1.05rem;">
+            الدكتورة دينا أحمد طبيبة أسنان تمارس المهنة بشغف ودقة، وتؤمن بأن الابتسامة الصحية هي انعكاس
+            لرعاية متكاملة تبدأ بالتشخيص الدقيق وتنتهي بمتابعة مستمرة. تعتمد في عيادتها أحدث التقنيات
+            وأرقى معايير التعقيم، وتحرص على أن يشعر كل مريض بالراحة والطمأنينة منذ لحظة دخوله.
+          </p>
+          <ul class="about-points">
+            <li><i class="fa-solid fa-check"></i><span>نهج علاجي شخصي: خطة مصممة خصيصاً لحالة كل مريض واحتياجاته.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>مواكبة مستمرة لأحدث ما توصل إليه طب الأسنان الحديث عالمياً.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>أولوية قصوى لراحة المريض وتجربة علاجية خالية من القلق.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>شفافية كاملة في التشخيص والخطة العلاجية والتكاليف.</span></li>
+          </ul>
+          <a href="#booking" class="btn btn-hero btn-hero-primary ripple mt-2"><i class="fa-regular fa-calendar-check ms-2"></i>ابدأ رحلة ابتسامتك</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ قسم الخبرات ============ -->
+  <section class="section-pad expertise-section" id="expertise">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="sec-eyebrow"><i class="fa-solid fa-wand-magic-sparkles"></i> مجالات الممارسة</span>
+        <h2 class="sec-title">خبرات تكمّل جمال ابتسامتك</h2>
+        <p class="sec-sub">إلى جانب طب الأسنان، تمتلك الدكتورة دينا خبرة عملية في مجالات العناية التجميلية غير الجراحية.</p>
+        <div class="title-line"></div>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="exp-card">
+            <div class="exp-icon"><i class="fa-solid fa-syringe"></i></div>
+            <h4 class="mt-4 fw-bold">خبرة في البوتوكس</h4>
+            <p style="color:var(--muted); font-size:.95rem;">إلمام عملي بتقنيات البوتوكس الحديثة وتطبيقاتها التجميلية بدقة واحترافية عالية.</p>
+            <span class="exp-tag">مجال ممارسة</span>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="exp-card gold">
+            <div class="exp-icon"><i class="fa-solid fa-droplet"></i></div>
+            <h4 class="mt-4 fw-bold">خبرة في الفيلر</h4>
+            <p style="color:var(--muted); font-size:.95rem;">معرفة متعمقة بأنواع الفيلر واستخداماته لتحقيق نتائج طبيعية ومتوازنة.</p>
+            <span class="exp-tag">مجال ممارسة</span>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="exp-card deep">
+            <div class="exp-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
+            <h4 class="mt-4 fw-bold">خبرة في الميزوثيرابي</h4>
+            <p style="color:var(--muted); font-size:.95rem;">خبرة في تقنيات الميزوثيرابي للعناية بالبشرة ونضارتها بأساليب آمنة وحديثة.</p>
+            <span class="exp-tag">مجال ممارسة</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ قسم خدمات طب الأسنان ============ -->
+  <section class="section-pad services-section" id="services">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="sec-eyebrow" style="background:rgba(37,198,180,.18);"><i class="fa-solid fa-tooth"></i> خدماتنا</span>
+        <h2 class="sec-title text-white">خدمات طب أسنان متكاملة</h2>
+        <p class="sec-sub">كل ما تحتاجه ابتسامتك في مكان واحد — بأحدث الأجهزة وأدق البروتوكولات العلاجية.</p>
+        <div class="title-line"></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="50">
+          <div class="srv-card">
+            <div class="srv-icon"><i class="fa-solid fa-tooth"></i></div>
+            <h5>تنظيف الأسنان</h5>
+            <p>تنظيف احترافي عميق يعيد لأسنانك نقاءها ويحمي لثتك من الالتهابات.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="srv-card">
+            <div class="srv-icon"><i class="fa-solid fa-fill-drip"></i></div>
+            <h5>حشوات الأسنان</h5>
+            <p>حشوات تجميلية بلون السن الطبيعي تعيد للسن شكله ووظيفته بدقة متناهية.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="150">
+          <div class="srv-card">
+            <div class="srv-icon"><i class="fa-regular fa-sun"></i></div>
+            <h5>تبييض الأسنان</h5>
+            <p>تبييض آمن وفعّال بتقنيات حديثة يمنحك ابتسامة أكثر إشراقاً بدرجات ملحوظة.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="srv-card">
+            <div class="srv-icon"><i class="fa-solid fa-broom"></i></div>
+            <h5>إزالة الجير</h5>
+            <p>إزالة دقيقة للترسبات الجيرية للحفاظ على صحة اللثة ونضارة الابتسامة.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="250">
+          <div class="srv-card">
+            <div class="srv-icon"><i class="fa-solid fa-snowflake"></i></div>
+            <h5>علاج حساسية الأسنان</h5>
+            <p>حلول علاجية فعّالة تخلصك من الانزعاج عند تناول المأكولات الباردة والساخنة.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="srv-card">
+            <div class="srv-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h5>علاج التسوس</h5>
+            <p>تشخيص مبكر وعلاج شامل للتسوس يحافظ على أسنانك الطبيعية لأطول فترة.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="350">
+          <div class="srv-card">
+            <div class="srv-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <h5>فحص دوري</h5>
+            <p>فحوصات دورية شاملة تكشف المشكلات مبكراً وتحمي صحة فمك على المدى البعيد.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="srv-card">
+            <div class="srv-icon"><i class="fa-regular fa-comments"></i></div>
+            <h5>استشارة أسنان</h5>
+            <p>استشارة متخصصة تجيب عن أسئلتك وترسم لك خطة علاجية واضحة ومطمئنة.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ قسم لماذا تختار الدكتورة دينا ============ -->
+  <section class="section-pad" id="why">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="sec-eyebrow"><i class="fa-solid fa-gem"></i> ما يميزنا</span>
+        <h2 class="sec-title">لماذا تختار الدكتورة دينا أحمد؟</h2>
+        <p class="sec-sub">تفاصيل صغيرة تصنع فرقاً كبيراً في تجربتك العلاجية.</p>
+        <div class="title-line"></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="50">
+          <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            <div><h5>اهتمام بالتفاصيل</h5><p>دقة متناهية في كل خطوة، من التشخيص الأول وحتى اللمسة الأخيرة في العلاج.</p></div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-shield-virus"></i></div>
+            <div><h5>تعقيم عالي</h5><p>بروتوكولات تعقيم صارمة بمعايير عالمية تضمن سلامتك في كل زيارة.</p></div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+          <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-microscope"></i></div>
+            <div><h5>أحدث التقنيات</h5><p>أجهزة وتقنيات حديثة تجعل العلاج أدق وأسرع وأكثر راحة.</p></div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-phone-volume"></i></div>
+            <div><h5>متابعة بعد العلاج</h5><p>لا تنتهي رعايتنا بانتهاء الجلسة؛ نتابع حالتك للاطمئنان على النتائج.</p></div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
+          <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-user-doctor"></i></div>
+            <div><h5>عناية شخصية</h5><p>خطة علاجية مصممة خصيصاً لحالتك، لأن كل ابتسامة مختلفة عن غيرها.</p></div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-couch"></i></div>
+            <div><h5>راحة المريض أولاً</h5><p>أجواء هادئة وتعامل لطيف يحوّلان زيارة الطبيب إلى تجربة مريحة ومطمئنة.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ قسم آراء المرضى ============ -->
+  <section class="section-pad testi-section" id="testimonials">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="sec-eyebrow"><i class="fa-regular fa-heart"></i> قالوا عنّا</span>
+        <h2 class="sec-title">آراء مرضانا</h2>
+        <p class="sec-sub">ثقة مرضانا هي أجمل شهادة نعتز بها.</p>
+        <div class="title-line"></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="testi-card">
+            <span class="quote-mark">”</span>
+            <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="testi-text">تجربة رائعة من البداية للنهاية. الدكتورة دينا شرحت لي كل خطوة بهدوء، وجلسة التنظيف كانت مريحة تماماً بعكس ما توقعت. أنصح بها بشدة!</p>
+            <div class="testi-user">
+              <div class="testi-avatar">س</div>
+              <div><div class="name">سارة محمد</div><div class="role">تنظيف وتبييض أسنان</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="testi-card">
+            <span class="quote-mark">”</span>
+            <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <p class="testi-text">كنت أعاني من حساسية شديدة في أسناني، وبعد جلستين فقط شعرت بفرق كبير. الاهتمام والمتابعة بعد العلاج شيء نادراً ما تجده. شكراً دكتورة دينا.</p>
+            <div class="testi-user">
+              <div class="testi-avatar">أ</div>
+              <div><div class="name">أحمد خالد</div><div class="role">علاج حساسية الأسنان</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="testi-card">
+            <span class="quote-mark">”</span>
+            <div class="testi-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+            <p class="testi-text">حشوة تجميلية بمستوى فني عالٍ، لا يمكن تمييزها عن السن الطبيعي! العيادة نظيفة ومعقمة والتعامل راقٍ جداً. تستحق كل التقدير.</p>
+            <div class="testi-user">
+              <div class="testi-avatar">ن</div>
+              <div><div class="name">نور عبد الله</div><div class="role">حشوة تجميلية</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ قسم الحجز ============ -->
+  <section class="section-pad booking-section" id="booking">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <!-- الجانب التعريفي للحجز -->
+        <div class="col-lg-5 booking-side" data-aos="fade-left">
+          <span class="sec-eyebrow" style="background:rgba(37,198,180,.18);"><i class="fa-regular fa-calendar-check"></i> احجز موعدك</span>
+          <h3 class="sec-title text-white mt-3">خطوة واحدة تفصلك<br>عن ابتسامة أكثر صحة</h3>
+          <p class="mt-3">املأ النموذج وسيتم التواصل معك لتأكيد الموعد في أقرب وقت. جميع الخيارات مخصصة لخدمات طب الأسنان فقط.</p>
+          <div class="mt-4">
+            <div class="booking-feature">
+              <div class="ic"><i class="fa-solid fa-bolt"></i></div>
+              <div><div class="t">تأكيد سريع</div><div class="s">نرد على طلبات الحجز خلال ساعات قليلة</div></div>
+            </div>
+            <div class="booking-feature">
+              <div class="ic"><i class="fa-solid fa-lock"></i></div>
+              <div><div class="t">خصوصية تامة</div><div class="s">بياناتك تُستخدم لتنسيق الموعد فقط</div></div>
+            </div>
+            <div class="booking-feature">
+              <div class="ic"><i class="fa-regular fa-clock"></i></div>
+              <div><div class="t">مرونة في المواعيد</div><div class="s">فترات صباحية وظهرية ومسائية تناسبك</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- نموذج الحجز الزجاجي -->
+        <div class="col-lg-7" data-aos="fade-right">
+          <div class="booking-glass">
+            <form id="bookingForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="fullName"><i class="fa-regular fa-user ms-1"></i> الاسم الكامل</label>
+                  <input type="text" class="form-control" id="fullName" name="name" placeholder="اكتب اسمك الثلاثي" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="phone"><i class="fa-solid fa-phone ms-1"></i> رقم الهاتف</label>
+                  <input type="tel" class="form-control" id="phone" name="phone" placeholder="07XXXXXXXXX" inputmode="tel" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="age"><i class="fa-solid fa-cake-candles ms-1"></i> العمر</label>
+                  <input type="number" class="form-control" id="age" name="age" placeholder="مثال: 25" min="1" max="120" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="gender"><i class="fa-solid fa-venus-mars ms-1"></i> الجنس</label>
+                  <select class="form-select" id="gender" name="gender" required>
+                    <option value="" selected disabled>اختر الجنس</option>
+                    <option value="ذكر">ذكر</option>
+                    <option value="أنثى">أنثى</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="service"><i class="fa-solid fa-tooth ms-1"></i> الخدمة المطلوبة</label>
+                  <select class="form-select" id="service" name="service" required>
+                    <option value="" selected disabled>اختر خدمة الأسنان</option>
+                    <option value="تنظيف الأسنان">تنظيف الأسنان</option>
+                    <option value="حشوة أسنان">حشوة أسنان</option>
+                    <option value="تبييض الأسنان">تبييض الأسنان</option>
+                    <option value="إزالة الجير">إزالة الجير</option>
+                    <option value="علاج التسوس">علاج التسوس</option>
+                    <option value="علاج الحساسية">علاج الحساسية</option>
+                    <option value="فحص دوري">فحص دوري</option>
+                    <option value="استشارة">استشارة</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="date"><i class="fa-regular fa-calendar ms-1"></i> التاريخ المناسب</label>
+                  <input type="date" class="form-control" id="date" name="date" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label d-block"><i class="fa-regular fa-clock ms-1"></i> الفترة المناسبة</label>
+                  <div class="row g-2">
+                    <div class="col-4">
+                      <input type="radio" class="period-check" name="period" id="pMorning" value="صباحاً" required>
+                      <label class="period-label" for="pMorning"><i class="fa-solid fa-sun"></i> صباحاً</label>
+                    </div>
+                    <div class="col-4">
+                      <input type="radio" class="period-check" name="period" id="pNoon" value="ظهراً">
+                      <label class="period-label" for="pNoon"><i class="fa-solid fa-cloud-sun"></i> ظهراً</label>
+                    </div>
+                    <div class="col-4">
+                      <input type="radio" class="period-check" name="period" id="pEvening" value="مساءً">
+                      <label class="period-label" for="pEvening"><i class="fa-solid fa-moon"></i> مساءً</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="notes"><i class="fa-regular fa-pen-to-square ms-1"></i> ملاحظات إضافية <span style="opacity:.6;">(اختياري)</span></label>
+                  <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="أخبرنا بأي تفاصيل تساعدنا في خدمتك بشكل أفضل..."></textarea>
+                </div>
+                <div class="col-12 mt-4">
+                  <button type="submit" class="btn btn-submit-booking ripple" id="submitBtn">
+                    <i class="fa-regular fa-circle-check ms-2"></i>تأكيد الحجز
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ قسم التواصل ============ -->
+  <section class="section-pad" id="contact">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="sec-eyebrow"><i class="fa-regular fa-paper-plane"></i> تواصل معنا</span>
+        <h2 class="sec-title">يسعدنا التواصل معك</h2>
+        <p class="sec-sub">لأي استفسار أو سؤال، تواصل معنا مباشرة عبر المنصات التالية.</p>
+        <div class="title-line"></div>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+          <a class="contact-card" href="https://www.instagram.com/deo_o.21?igsh=MWZicnV5Zm91bmZkcA==" target="_blank" rel="noopener">
+            <div class="contact-icon ig"><i class="fa-brands fa-instagram"></i></div>
+            <h4 class="fw-bold">إنستغرام</h4>
+            <p style="color:var(--muted); font-size:.92rem; margin-bottom:6px;">تابع أحدث النصائح والنتائج</p>
+            <span class="handle">@deo_o.21</span>
+          </a>
+        </div>
+        <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+          <a class="contact-card" href="https://t.me/deo_o12" target="_blank" rel="noopener">
+            <div class="contact-icon tg"><i class="fa-brands fa-telegram"></i></div>
+            <h4 class="fw-bold">تيليغرام</h4>
+            <p style="color:var(--muted); font-size:.92rem; margin-bottom:6px;">تواصل سريع ومباشر</p>
+            <span class="handle">@deo_o12</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ التذييل ============ -->
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <div class="footer-brand">
+            <span class="brand-mark" style="width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--aqua),#159a8b);box-shadow:var(--shadow-glow);">
+              <svg width="26" height="26" viewBox="0 0 100 100"><path d="M50 8C30 8 20 24 21 42c1 15 8 20 9 35 1 12 6 17 10 15 4-2 2-17 10-17s6 15 10 17c4 2 9-3 10-15 1-15 8-20 9-35C80 24 70 8 50 8z" fill="#fff"/></svg>
+            </span>
+            الدكتورة دينا أحمد
+          </div>
+          <p class="footer-quote">"ابتسامتك تستحق أفضل عناية."</p>
+          <p style="font-size:.92rem; color:rgba(255,255,255,.55); max-width:380px;">
+            عيادة أسنان متخصصة تقدم رعاية شاملة بأحدث التقنيات وأعلى معايير الجودة والتعقيم.
+          </p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h6 class="text-white fw-bold mb-3">روابط سريعة</h6>
+          <div class="footer-links">
+            <a href="#about">نبذة عن الطبيبة</a>
+            <a href="#services">خدمات الأسنان</a>
+            <a href="#testimonials">آراء المرضى</a>
+            <a href="#booking">حجز موعد</a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h6 class="text-white fw-bold mb-3">تابعنا وتواصل معنا</h6>
+          <p style="font-size:.92rem; color:rgba(255,255,255,.55);">نسعد بأسئلتك واستفساراتك في أي وقت.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/deo_o.21?igsh=MWZicnV5Zm91bmZkcA==" target="_blank" rel="noopener" aria-label="إنستغرام"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://t.me/deo_o12" target="_blank" rel="noopener" aria-label="تيليغرام"><i class="fa-brands fa-telegram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        © <span id="year"></span> الدكتورة دينا أحمد — جميع الحقوق محفوظة.
+      </div>
+    </div>
+  </footer>
+
+  <!-- زر العودة للأعلى -->
+  <button id="backToTop" aria-label="العودة إلى الأعلى"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- ============ مكتبات JavaScript (CDN) ============ -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+    /* =====================================================
+       البرمجة التفاعلية — موقع الدكتورة دينا أحمد
+       جميع التعليقات باللغة العربية كما هو مطلوب
+       ===================================================== */
+    'use strict';
+
+    /* رابط الـ Worker لاستقبال بيانات الحجز */
+    const WORKER_URL = 'https://square-voice-3ce9.alaswedraad.workers.dev';
+
+    /* ============ شاشة التحميل ============ */
+    window.addEventListener('load', () => {
+      setTimeout(() => document.getElementById('loader').classList.add('hide'), 600);
+    });
+    /* إخفاء احتياطي في حال تأخر تحميل بعض الموارد */
+    setTimeout(() => document.getElementById('loader').classList.add('hide'), 4000);
+
+    /* ============ تهيئة مكتبة AOS للحركات ============ */
+    AOS.init({
+      duration: 850,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 60
+    });
+
+    /* ============ سنة التذييل الحالية ============ */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ============ منع اختيار تاريخ سابق في الحجز ============ */
+    document.getElementById('date').min = new Date().toISOString().split('T')[0];
+
+    /* ============ شريط تقدم التمرير + شريط التنقل + زر الأعلى ============ */
+    const progressBar = document.getElementById('scrollProgress');
+    const navbar = document.getElementById('mainNav');
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      /* تحديث عرض شريط التقدم بحسب نسبة التمرير */
+      progressBar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+      /* تكثيف خلفية شريط التنقل بعد التمرير */
+      navbar.classList.toggle('scrolled', scrolled > 60);
+      /* إظهار زر العودة للأعلى */
+      backToTop.classList.toggle('show', scrolled > 500);
+      /* تفعيل رابط القسم الظاهر حالياً */
+      highlightActiveLink();
+    }, { passive: true });
+
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* ============ تفعيل رابط التنقل حسب القسم الظاهر ============ */
+    const sections = document.querySelectorAll('section[id], header[id]');
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    function highlightActiveLink() {
+      let current = 'hero';
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 140) current = sec.id;
+      });
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+    }
+
+    /* ============ إغلاق القائمة المنسدلة على الجوال بعد اختيار رابط ============ */
+    document.querySelectorAll('#navMenu .nav-link, .btn-nav-book').forEach(link => {
+      link.addEventListener('click', () => {
+        const menu = document.getElementById('navMenu');
+        if (menu.classList.contains('show')) bootstrap.Collapse.getInstance(menu)?.hide();
+      });
+    });
+
+    /* ============ توهج مؤشر الفأرة ============ */
+    const glow = document.getElementById('mouseGlow');
+    document.addEventListener('mousemove', (e) => {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    }, { passive: true });
+
+    /* ============ تفاعل السن مع حركة الفأرة (Parallax) ============ */
+    const scene = document.getElementById('toothScene');
+    const tooth = document.getElementById('tooth3d');
+    if (scene && tooth && window.matchMedia('(pointer: fine)').matches) {
+      scene.addEventListener('mousemove', (e) => {
+        const rect = scene.getBoundingClientRect();
+        /* حساب موقع المؤشر نسبةً إلى مركز المشهد */
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        /* إمالة السن ثلاثية الأبعاد بحسب موقع المؤشر */
+        tooth.style.transform = `rotateY(${x * 32}deg) rotateX(${ -y * 22}deg)`;
+      });
+      scene.addEventListener('mouseleave', () => { tooth.style.transform = 'rotateY(0) rotateX(0)'; });
+    }
+    /* دوران بطيء تلقائي للسن عند عدم وجود تفاعل (على الشاشات اللمسية) */
+    if (!window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      let angle = 0;
+      setInterval(() => {
+        angle += 0.4;
+        tooth.style.transform = `rotateY(${Math.sin(angle * Math.PI / 180) * 24}deg)`;
+      }, 40);
+    }
+
+    /* ============ توليد الجزيئات المضيئة في الواجهة ============ */
+    (function createParticles() {
+      const holder = document.getElementById('particles');
+      const count = window.innerWidth < 576 ? 14 : 26;
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('span');
+        p.className = 'particle';
+        const size = 3 + Math.random() * 7;               /* حجم عشوائي */
+        p.style.width = p.style.height = size + 'px';
+        p.style.right = Math.random() * 100 + '%';        /* موضع أفقي عشوائي */
+        p.style.bottom = '-10px';
+        p.style.animationDuration = (9 + Math.random() * 12) + 's'; /* سرعة عشوائية */
+        p.style.animationDelay = (Math.random() * 12) + 's';
+        holder.appendChild(p);
+      }
+    })();
+
+    /* ============ العدادات المتحركة (تعمل عند ظهورها على الشاشة) ============ */
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = +el.dataset.target;
+        const duration = 1800;                            /* مدة العد بالمللي ثانية */
+        const start = performance.now();
+        /* حركة عد سلسة باستخدام requestAnimationFrame */
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);    /* تخفيف الحركة */
+          el.textContent = Math.floor(eased * target).toLocaleString('ar-EG');
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        counterObserver.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(c => counterObserver.observe(c));
+
+    /* ============ تأثير التموج (Ripple) على الأزرار ============ */
+    document.querySelectorAll('.ripple').forEach(btn => {
+      btn.addEventListener('click', function (e) {
+        const rect = this.getBoundingClientRect();
+        const wave = document.createElement('span');
+        const size = Math.max(rect.width, rect.height);
+        wave.className = 'ripple-wave';
+        wave.style.width = wave.style.height = size + 'px';
+        wave.style.left = (e.clientX - rect.left - size / 2) + 'px';
+        wave.style.top = (e.clientY - rect.top - size / 2) + 'px';
+        this.appendChild(wave);
+        setTimeout(() => wave.remove(), 700);
+      });
+    });
+
+    /* ============ إرسال نموذج الحجز ============ */
+    const form = document.getElementById('bookingForm');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      /* التحقق من صحة الحقول قبل الإرسال */
+      if (!form.checkValidity()) {
+        form.classList.add('was-validated');
+        Swal.fire({
+          icon: 'warning',
+          title: 'بيانات ناقصة',
+          text: 'يرجى تعبئة جميع الحقول المطلوبة قبل تأكيد الحجز.',
+          confirmButtonText: 'حسناً',
+          confirmButtonColor: '#25C6B4'
+        });
+        return;
+      }
+
+      /* تجهيز بيانات الحجز بصيغة JSON */
+      const data = {
+        الاسم: form.name.value.trim(),
+        الهاتف: form.phone.value.trim(),
+        العمر: form.age.value.trim(),
+        الجنس: form.gender.value,
+        الخدمة: form.service.value,
+        التاريخ: form.date.value,
+        الفترة: form.period.value,
+        الملاحظات: form.notes.value.trim() || 'لا توجد',
+        وقت_الإرسال: new Date().toLocaleString('ar-EG', { dateStyle: 'full', timeStyle: 'medium' }),
+        userAgent: navigator.userAgent,
+        الصفحة: window.location.href
+      };
+
+      /* تعطيل الزر وإظهار حالة الإرسال */
+      submitBtn.disabled = true;
+      const originalHTML = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin ms-2"></i>جارٍ إرسال الحجز...';
+
+      try {
+        /* إرسال البيانات إلى الـ Worker */
+        const res = await fetch(WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (!res.ok) throw new Error('فشل الإرسال');
+
+        /* رسالة النجاح باستخدام SweetAlert2 */
+        Swal.fire({
+          icon: 'success',
+          title: 'تم استلام حجزك بنجاح! 🎉',
+          html: `شكراً لك <b>${data.الاسم}</b><br>سيتم التواصل معك قريباً لتأكيد موعد <b>${data.الخدمة}</b>.`,
+          confirmButtonText: 'رائع',
+          confirmButtonColor: '#25C6B4',
+          background: '#F5FBFA'
+        });
+
+        /* تنظيف النموذج بعد النجاح */
+        form.reset();
+        form.classList.remove('was-validated');
+
+      } catch (err) {
+        /* رسالة خطأ في حال تعذر الإرسال */
+        Swal.fire({
+          icon: 'error',
+          title: 'تعذر إرسال الحجز',
+          text: 'حدث خطأ أثناء الإرسال. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.',
+          confirmButtonText: 'حسناً',
+          confirmButtonColor: '#25C6B4'
+        });
+      } finally {
+        /* إعادة الزر لحالته الأصلية */
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalHTML;
+      }
+    });
+  </script>
+</body>
+</html>
