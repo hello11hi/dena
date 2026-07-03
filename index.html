@@ -991,7 +991,7 @@
             </div>
             <div class="booking-feature">
               <div class="ic"><i class="fa-regular fa-clock"></i></div>
-              <div><div class="t">مرونة في المواعيد</div><div class="s">فترات صباحية وظهرية ومسائية تناسبك</div></div>
+              <div><div class="t">مواعيد صباحية</div><div class="s">الحجوزات متاحة حالياً في الفترة الصباحية فقط</div></div>
             </div>
           </div>
         </div>
@@ -1040,20 +1040,9 @@
                   <input type="date" class="form-control" id="date" name="date" required>
                 </div>
                 <div class="col-12">
-                  <label class="form-label d-block"><i class="fa-regular fa-clock ms-1"></i> الفترة المناسبة</label>
-                  <div class="row g-2">
-                    <div class="col-4">
-                      <input type="radio" class="period-check" name="period" id="pMorning" value="صباحاً" required>
-                      <label class="period-label" for="pMorning"><i class="fa-solid fa-sun"></i> صباحاً</label>
-                    </div>
-                    <div class="col-4">
-                      <input type="radio" class="period-check" name="period" id="pNoon" value="ظهراً">
-                      <label class="period-label" for="pNoon"><i class="fa-solid fa-cloud-sun"></i> ظهراً</label>
-                    </div>
-                    <div class="col-4">
-                      <input type="radio" class="period-check" name="period" id="pEvening" value="مساءً">
-                      <label class="period-label" for="pEvening"><i class="fa-solid fa-moon"></i> مساءً</label>
-                    </div>
+                  <label class="form-label d-block"><i class="fa-solid fa-sun ms-1"></i> الفترة المتاحة</label>
+                  <div class="period-label" style="cursor:default;">
+                    <i class="fa-solid fa-sun"></i> صباحاً (الفترة الوحيدة المتاحة حالياً)
                   </div>
                 </div>
                 <div class="col-12">
@@ -1096,7 +1085,6 @@
             <div class="contact-icon tg"><i class="fa-brands fa-telegram"></i></div>
             <h4 class="fw-bold">تيليغرام</h4>
             <p style="color:var(--muted); font-size:.92rem; margin-bottom:6px;">تواصل سريع ومباشر</p>
-            <span class="handle">@deo_o12</span>
           </a>
         </div>
       </div>
@@ -1327,7 +1315,7 @@
         return;
       }
 
-      /* تجهيز بيانات الحجز بصيغة JSON */
+      /* تجهيز بيانات الحجز بصيغة JSON — الفترة صباحاً فقط حالياً */
       const data = {
         الاسم: form.name.value.trim(),
         الهاتف: form.phone.value.trim(),
@@ -1335,7 +1323,7 @@
         الجنس: form.gender.value,
         الخدمة: form.service.value,
         التاريخ: form.date.value,
-        الفترة: form.period.value,
+        الفترة: 'صباحاً',
         الملاحظات: form.notes.value.trim() || 'لا توجد',
         وقت_الإرسال: new Date().toLocaleString('ar-EG', { dateStyle: 'full', timeStyle: 'medium' }),
         userAgent: navigator.userAgent,
